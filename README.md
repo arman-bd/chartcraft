@@ -79,11 +79,15 @@ Example:
 (DRAW green (TEXT-AT (160 320) "YAY!!"))
 ```
 
+## TODO
+* Need to work on coordinate and size as per project guideline
+* Need to apply testing strategies for both Java and Scala part of the project.
+
 ## Contributing
 Contributions are welcome. Please fork the repository, create a feature branch, and submit a pull request for review.
 
 ## Testing
-Testing methodologies include unit tests for Scala components and integration tests for the Java GUI. Test cases focus on graphical accuracy, command parsing, and user interaction.
+**TBD**
 
 ## Documentation
 A detailed report is available that describes the architecture, usage, and testing strategies employed during development.
