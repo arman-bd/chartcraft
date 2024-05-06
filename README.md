@@ -1,6 +1,8 @@
 # ChartCraft
 ChartCraft is a Java and Scala-based Integrated Development Environment (IDE) designed for creating graphical representations such as charts with embedded text. Developed as part of the Software Correctness course at Aarhus University, this application provides a platform for users to input graphical commands and view their output dynamically on a Euclidean plane.
 
+<img src="chart_craft.png">
+
 ## Features
 **Euclidean Graphics Viewer:** Features a viewer that displays graphical objects with a background grid.
 
@@ -36,9 +38,28 @@ sbt run
 
 The application window should open, divided into a graphical viewer on the left and a graphics command editor on the right.
 
-## Usage
-Input graphical commands in the editor on the right side of the application. Example commands to draw a basic bar chart and pie chart are as follows:
+## Command Syntax Table
 
+| Command        | Description                                           | Syntax                                                   | Example                                   |
+|----------------|-------------------------------------------------------|----------------------------------------------------------|-------------------------------------------|
+| `BOUNDING-BOX` | Defines a bounding box within which to draw.           | `(BOUNDING-BOX (x1 y1) (x2 y2))`                         | `(BOUNDING-BOX (0 0) (300 300))`          |
+| `LINE`         | Draws a line between two points.                       | `(LINE (x1 y1) (x2 y2))`                                 | `(LINE (100 100) (200 200))`              |
+| `RECTANGLE`    | Draws a rectangle given two opposite corners.          | `(RECTANGLE (x1 y1) (x2 y2))`                            | `(RECTANGLE (50 50) (150 150))`           |
+| `CIRCLE`       | Draws a circle given a center point and radius.        | `(CIRCLE (x y) r)`                                       | `(CIRCLE (120 120) 60)`                   |
+| `TEXT-AT`      | Places text at a specified position.                   | `(TEXT-AT (x y) "text")`                                 | `(TEXT-AT (160 160) "Hello, world!")`     |
+| `DRAW`         | Applies a color to enclosed commands.                  | `(DRAW color g1 g2 ...)`, where `g1`, `g2`, ... are commands | `(DRAW red (LINE (10 10) (200 200)))`   |
+| `FILL`         | Fills a drawable object with color.                    | `(FILL color g)`, where `g` is a drawable command        | `(FILL blue (CIRCLE (100 100) 50))`       |
+
+### Additional Notes
+
+- **Coordinates and Measurements**: All coordinates and dimensions are in pixels.
+- **Colors**: Supported color values include `black`, `red`, `green`, `blue`, `yellow`. Custom colors need to be defined in the color map within the Scala code.
+- **Order of Operations**: All drawing commands must respect the bounding box if defined. Commands are executed in the order they are provided.
+- **Nested Commands**: `DRAW` and `FILL` commands can contain other drawing commands.
+
+This table provides a clear guide to the syntax required by ChartCraft for creating and manipulating graphical elements on the canvas. Users should refer to this table to ensure their commands are correctly formatted to achieve the desired graphical output.
+
+Example:
 ```text
 (BOUNDING-BOX (1 1) (500 500))
 (LINE (150 100) (150 200))
@@ -57,6 +78,7 @@ Input graphical commands in the editor on the right side of the application. Exa
 (DRAW red (TEXT-AT (110 320) "YAY!!"))
 (DRAW green (TEXT-AT (160 320) "YAY!!"))
 ```
+
 ## Contributing
 Contributions are welcome. Please fork the repository, create a feature branch, and submit a pull request for review.
 
@@ -73,4 +95,4 @@ A detailed report is available that describes the architecture, usage, and testi
 This project is licensed under the MIT License.
 
 ## Acknowledgments
-[Aarhus University, Denmark](https://au.dk) - For providing the academic environment and guidance necessary for this project.
+[Aarhus University](https://au.dk) - For providing the academic environment and guidance necessary for this project.
