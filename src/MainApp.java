@@ -1,8 +1,5 @@
 package dk.au.chartcraft;
 
-import scala.None;
-import scala.Option;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +8,7 @@ public class MainApp extends JFrame {
     private GraphicsPanel canvasPanel;
 
     public MainApp() {
-        super("DrawIDE");
+        super("ChartCraft");
         initializeUI();
     }
 
@@ -61,13 +58,8 @@ public class MainApp extends JFrame {
         canvasPanel.clearDrawables();
 
         // Parse the new text and update the canvas
-        String[] commands = textArea.getText().split("\n");
-        for (String command : commands) {
-            Option<Drawable> result = CommandParser.parseCommand(command, canvasPanel);
-            if (result.isDefined()) {
-                canvasPanel.addDrawable(result.get());
-            }
-        }
+        String commands = textArea.getText();
+        CommandParser.parseCommand(commands, canvasPanel);
 
         canvasPanel.repaint();
     }
