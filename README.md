@@ -90,7 +90,7 @@ Contributions are welcome. Please fork the repository, create a feature branch, 
 **TBD**
 
 ## Documentation
-A detailed report is available that describes the architecture, usage, and testing strategies employed during development.
+**TBD**
 
 ## Authors
 [Arman](https://github.com/arman-bd) and Team
