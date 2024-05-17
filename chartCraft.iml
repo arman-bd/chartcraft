@@ -10,5 +10,6 @@
     <orderEntry type="library" name="scala-sdk-2.13.12" level="application" />
     <orderEntry type="library" name="scala.lang.modules.parser.combinators_2.13" level="project" />
     <orderEntry type="library" name="lihaoyi.fastparse_2.13" level="project" />
+    <orderEntry type="library" name="sireum" level="project" />
   </component>
 </module>
